@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Bash(python3 -m http.server 8934)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8934/index.html)",
+      "Bash(npm -v)",
+      "Bash(pkill -f \"http.server 8934\")",
+      "Bash(npx --yes create-next-app@latest . --ts --app --no-tailwind --eslint --src-dir=false --import-alias \"@/*\" --use-npm --disable-git)",
+      "Bash(npx --yes create-next-app@latest --help)",
+      "Bash(npx --yes create-next-app@latest /tmp/claude-1000/-home-adarsh-Desktop-ganeshPrj/c6150daa-9b8b-42f2-be85-c71132f7bef4/scratchpad/tedxdsce --ts --app --no-tailwind --eslint --src-dir=false --import-alias @/* --use-npm --disable-git --yes)",
+      "Bash(npm run *)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(kill 34025)",
+      "Bash(pkill -9 -f \"next dev\")",
+      "Bash(pkill -9 -f \"next-server\")",
+      "Bash(npx tsc *)",
+      "Bash(disown)",
+      "Bash(curl *)",
+      "Bash(kill -9 39642)"
+    ]
+  }
+}

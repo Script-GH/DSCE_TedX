@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #f5f5f5;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e62b1e;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: #e62b1e;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e62b1e;
+}
+
+.hcarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.hcarousel {
+  scrollbar-width: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-62deg);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loaderTip {
+  0% {
+    transform: rotate(0);
+  }
+  60% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(72deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+  .hero-h1 {
+    font-size: 15vw !important;
+  }
+  .section-pad {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+@media (min-width: 861px) {
+  .nav-mobile-btn {
+    display: none !important;
+  }
+}
+
+/* Hover treatments (kept as real CSS so :hover works without JS) */
+.btn-accent-sm {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.btn-accent-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(230, 43, 30, 0.4);
+}
+
+.btn-accent-lg {
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.btn-accent-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(230, 43, 30, 0.45);
+}
+
+.btn-outline {
+  transition: border-color 0.25s, background 0.25s;
+}
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.link-fade-white {
+  transition: color 0.2s;
+}
+.link-fade-white:hover {
+  color: #fff;
+}
+
+.icon-btn {
+  transition: all 0.25s;
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.video-card {
+  transition: transform 0.4s, border-color 0.4s;
+}
+.video-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(230, 43, 30, 0.5);
+}
+
+.gallery-item {
+  transition: transform 0.4s, filter 0.4s;
+  filter: grayscale(1) brightness(0.85);
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+  filter: grayscale(0) brightness(1);
+}
+
+/* Form fields (speaker application etc.) */
+.field {
+  transition: border-color 0.2s, background 0.2s;
+}
+.field:focus {
+  outline: none;
+  border-color: rgba(230, 43, 30, 0.65) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+.field::placeholder {
+  color: #5c5c5c;
+}
+.field-error {
+  border-color: rgba(230, 43, 30, 0.7) !important;
+}
+
+.toggle-pill {
+  transition: all 0.2s;
+}
+.toggle-pill:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.check-row {
+  transition: border-color 0.2s, background 0.2s;
+}
+.check-row:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn {
+  transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+}
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(230, 43, 30, 0.45);
+}
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
