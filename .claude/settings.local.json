@@ -17,7 +17,11 @@
       "Bash(npx tsc *)",
       "Bash(disown)",
       "Bash(curl *)",
-      "Bash(kill -9 39642)"
+      "Bash(kill -9 39642)",
+      "Bash(npx eslint *)",
+      "Bash(grep -v '^$')",
+      "Bash(bash -c ' *)",
+      "Bash(unset SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY RESEND_API_KEY NOTIFY_EMAIL NOTIFY_FROM_EMAIL)"
     ]
   }
 }

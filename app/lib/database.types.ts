@@ -47,6 +47,17 @@ export type SpeakerApplicationInsert = Omit<SpeakerApplicationRow, "id" | "creat
   created_at?: string;
 };
 
+export type NewsletterSubscriberRow = {
+  id: string;
+  created_at: string;
+  email: string;
+};
+
+export type NewsletterSubscriberInsert = Omit<NewsletterSubscriberRow, "id" | "created_at"> & {
+  id?: string;
+  created_at?: string;
+};
+
 export type Database = {
   public: {
     Tables: {
@@ -54,6 +65,12 @@ export type Database = {
         Row: SpeakerApplicationRow;
         Insert: SpeakerApplicationInsert;
         Update: Partial<SpeakerApplicationInsert>;
+        Relationships: [];
+      };
+      newsletter_subscribers: {
+        Row: NewsletterSubscriberRow;
+        Insert: NewsletterSubscriberInsert;
+        Update: Partial<NewsletterSubscriberInsert>;
         Relationships: [];
       };
     };

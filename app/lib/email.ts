@@ -71,3 +71,24 @@ export async function sendSpeakerApplicationNotification(data: SpeakerApplicatio
     html,
   });
 }
+
+export async function sendNewsletterConfirmation(email: string) {
+  const from = process.env.NOTIFY_FROM_EMAIL || "TEDxDSCE <onboarding@resend.dev>";
+
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto;">
+      <h2 style="color:#E62B1E;">You’re on the list.</h2>
+      <p style="color:#111;font-size:15px;line-height:1.6;">
+        Thanks for signing up for TEDxDSCE — Rise of the Domino. We’ll email
+        you first with ticket drops, speaker reveals and event updates.
+      </p>
+    </div>
+  `;
+
+  await getResend().emails.send({
+    from,
+    to: email,
+    subject: "You’re on the list — TEDxDSCE",
+    html,
+  });
+}

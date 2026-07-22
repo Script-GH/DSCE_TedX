@@ -4,11 +4,33 @@ import { useState, type FormEvent } from "react";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "subscribed" | "error">("idle");
+  const [error, setError] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubscribed(true);
+    setStatus("submitting");
+    setError("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("subscribed");
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -59,6 +81,7 @@ export default function Newsletter() {
               placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={status === "submitting" || status === "subscribed"}
               style={{
                 flex: 1,
                 minWidth: 220,
@@ -75,6 +98,7 @@ export default function Newsletter() {
             <button
               type="submit"
               className="btn-accent-lg"
+              disabled={status === "submitting" || status === "subscribed"}
               style={{
                 background: "#E62B1E",
                 color: "#fff",
@@ -83,13 +107,22 @@ export default function Newsletter() {
                 borderRadius: 100,
                 fontWeight: 600,
                 fontSize: 15,
-                cursor: "pointer",
+                cursor: status === "submitting" || status === "subscribed" ? "default" : "pointer",
                 fontFamily: "'Inter'",
+                opacity: status === "submitting" ? 0.7 : 1,
               }}
             >
-              {subscribed ? "You’re in ✓" : "Notify me"}
+              {status === "subscribed" ? "You’re in ✓" : status === "submitting" ? "Sending…" : "Notify me"}
             </button>
           </form>
+          {status === "error" && (
+            <p style={{ color: "#f87171", fontSize: 14, marginTop: 14 }}>{error}</p>
+          )}
+          {status === "subscribed" && (
+            <p style={{ color: "#a3a3a3", fontSize: 14, marginTop: 14 }}>
+              Check your inbox — we just sent you a confirmation email.
+            </p>
+          )}
         </div>
       </div>
     </section>

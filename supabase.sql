@@ -58,3 +58,19 @@ alter table public.speaker_applications enable row level security;
 
 create index if not exists speaker_applications_created_at_idx
   on public.speaker_applications (created_at desc);
+
+-- Run this once as well to create the table the newsletter "Notify me"
+-- form (app/components/Newsletter.tsx) writes to.
+
+create table if not exists public.newsletter_subscribers (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  email text not null unique
+);
+
+-- Same RLS posture as speaker_applications: only the service_role key
+-- (server-side only) can read or write this table.
+alter table public.newsletter_subscribers enable row level security;
+
+create index if not exists newsletter_subscribers_created_at_idx
+  on public.newsletter_subscribers (created_at desc);
