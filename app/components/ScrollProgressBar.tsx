@@ -17,23 +17,13 @@ export default function ScrollProgressBar() {
   }, []);
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 2,
-        zIndex: 1200,
-        background: "transparent",
-      }}
-    >
+    <div className="fixed inset-x-0 top-0 z-[1200] h-0.5">
       <div
+        className="h-full transition-[width] duration-150 ease-linear"
         style={{
-          height: "100%",
           width: `${pct}%`,
-          background: "linear-gradient(90deg, #E62B1E, #ff6a5e)",
-          boxShadow: "0 0 12px rgba(230,43,30,.8)",
+          background: "linear-gradient(90deg, var(--ted), var(--ted-glow))",
+          boxShadow: "0 0 12px color-mix(in oklab, var(--ted) 80%, transparent)",
         }}
       />
     </div>

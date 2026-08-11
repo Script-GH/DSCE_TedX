@@ -1,89 +1,51 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "../lib/data";
+import { Plus } from "lucide-react";
+import type { FaqRow } from "../lib/database.types";
+import Reveal from "./Reveal";
 
-export default function Faq() {
+export default function Faq({ faqs }: { faqs: FaqRow[] }) {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="faq" className="section-pad" style={{ padding: "100px 40px" }}>
-      <div style={{ maxWidth: 820, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 12,
-              letterSpacing: ".22em",
-              textTransform: "uppercase",
-              color: "#E62B1E",
-              marginBottom: 16,
-            }}
-          >
-            06 — Questions
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Inter Tight'",
-              fontWeight: 800,
-              fontSize: "clamp(34px, 5vw, 62px)",
-              letterSpacing: "-.03em",
-              lineHeight: 1,
-            }}
-          >
-            Frequently asked
-          </h2>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {faqs.map((f, i) => {
-            const isOpen = open === i;
-            return (
+    <section id="faq" className="mx-auto max-w-3xl px-5 py-28 md:px-8 md:py-40">
+      <Reveal className="text-center">
+        <p className="eyebrow">06 — Questions</p>
+        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Frequently asked</h2>
+      </Reveal>
+      <div className="mt-14 flex flex-col gap-3">
+        {faqs.map((f, i) => {
+          const isOpen = open === i;
+          return (
+            <Reveal key={f.id} delay={i * 50}>
               <div
-                key={f.q}
+                className="overflow-hidden rounded-2xl border transition-colors duration-300"
                 style={{
-                  border: `1px solid ${isOpen ? "rgba(230,43,30,.4)" : "rgba(255,255,255,.08)"}`,
-                  borderRadius: 14,
-                  background: isOpen ? "rgba(230,43,30,.05)" : "rgba(255,255,255,.02)",
-                  overflow: "hidden",
-                  transition: "border-color .3s, background .3s",
+                  borderColor: isOpen ? "color-mix(in oklab, var(--ted) 40%, transparent)" : "var(--border)",
+                  background: isOpen ? "color-mix(in oklab, var(--ted) 6%, transparent)" : "transparent",
                 }}
               >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: 20,
-                    padding: "22px 26px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    textAlign: "left",
-                    color: "#f5f5f5",
-                  }}
+                  className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
                 >
-                  <span style={{ fontFamily: "'Inter Tight'", fontWeight: 600, fontSize: 18, letterSpacing: "-.01em" }}>{f.q}</span>
-                  <span
-                    style={{
-                      fontSize: 24,
-                      color: "#E62B1E",
-                      flexShrink: 0,
-                      transition: "transform .3s",
-                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                    }}
-                  >
-                    +
-                  </span>
+                  <span className="font-medium">{f.question}</span>
+                  <Plus
+                    className="h-5 w-5 shrink-0 text-ted transition-transform duration-300"
+                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                  />
                 </button>
-                <div style={{ maxHeight: isOpen ? 240 : 0, overflow: "hidden", transition: "max-height .4s ease" }}>
-                  <p style={{ padding: "0 26px 24px", fontSize: 15, lineHeight: 1.65, color: "#9a9a9a" }}>{f.a}</p>
+                <div
+                  className="overflow-hidden transition-[max-height] duration-400 ease-in-out"
+                  style={{ maxHeight: isOpen ? 240 : 0 }}
+                >
+                  <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );

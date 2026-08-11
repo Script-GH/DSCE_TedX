@@ -1,9 +1,20 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { stats } from "../lib/data";
+import type { StatRow } from "../lib/database.types";
 
-export default function Stats() {
+function formatStatValue(n: number, formatType: StatRow["format_type"]): string {
+  switch (formatType) {
+    case "plus":
+      return n + "+";
+    case "k_plus":
+      return (n >= 1000 ? Math.floor(n / 1000) + "K" : String(n)) + "+";
+    default:
+      return n.toLocaleString();
+  }
+}
+
+export default function Stats({ stats }: { stats: StatRow[] }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [values, setValues] = useState<number[]>(stats.map(() => 0));
   const [shown, setShown] = useState(false);
@@ -24,16 +35,16 @@ export default function Stats() {
                   const step = (now: number) => {
                     const p = Math.min(1, (now - t0) / dur);
                     const eased = 1 - Math.pow(1 - p, 3);
-                    const v = Math.floor(eased * s.target);
+                    const v = Math.floor(eased * s.target_value);
                     setValues((prev) => {
                       const next = prev.slice();
-                      next[i] = p < 1 ? v : s.target;
+                      next[i] = p < 1 ? v : s.target_value;
                       return next;
                     });
                     if (p < 1) requestAnimationFrame(step);
                   };
                   requestAnimationFrame(step);
-                }, s.startDelay);
+                }, s.start_delay);
               });
               return true;
             });
@@ -44,50 +55,20 @@ export default function Stats() {
     );
     obs.observe(node);
     return () => obs.disconnect();
-  }, []);
+  }, [stats]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="section-pad"
-      style={{
-        padding: "90px 40px",
-        borderTop: "1px solid rgba(255,255,255,.06)",
-        borderBottom: "1px solid rgba(255,255,255,.06)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1320,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
-          gap: 0,
-        }}
-      >
+    <section ref={sectionRef} className="border-y border-border">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-border sm:grid-cols-4">
         {stats.map((s, i) => (
-          <div
-            key={s.label}
-            style={{
-              padding: "20px 30px",
-              borderLeft: `1px solid ${values[i] > 0 ? "rgba(230,43,30,.5)" : "rgba(255,255,255,.08)"}`,
-              transition: "border-color .6s",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "'Inter Tight'",
-                fontWeight: 800,
-                fontSize: "clamp(44px,6vw,76px)",
-                letterSpacing: "-.03em",
-                lineHeight: 1,
-                color: shown ? "#f5f5f5" : "#333",
-                transition: "color .6s",
-              }}
+          <div key={s.id} className="bg-background px-6 py-12 transition-colors duration-500 sm:px-8">
+            <p
+              className="display text-[clamp(2.5rem,6vw,4.5rem)] transition-colors duration-500"
+              style={{ color: shown ? "var(--foreground)" : "var(--surface-2)" }}
             >
-              {s.format(values[i])}
-            </div>
-            <div style={{ fontSize: 15, color: "#a3a3a3", marginTop: 12, fontWeight: 500 }}>{s.label}</div>
+              {formatStatValue(values[i], s.format_type)}
+            </p>
+            <p className="mt-3 text-sm font-medium text-muted-foreground">{s.label}</p>
           </div>
         ))}
       </div>

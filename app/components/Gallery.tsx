@@ -1,53 +1,25 @@
-import { galleryHeights } from "../lib/data";
+import type { GalleryPhotoRow } from "../lib/database.types";
+import Reveal from "./Reveal";
 
-export default function Gallery() {
+export default function Gallery({ photos }: { photos: GalleryPhotoRow[] }) {
   return (
-    <section id="gallery" className="section-pad" style={{ padding: "100px 40px", maxWidth: 1320, margin: "0 auto" }}>
-      <div style={{ marginBottom: 48 }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#E62B1E",
-            marginBottom: 16,
-          }}
-        >
-          05 — Moments
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
-            fontSize: "clamp(34px, 5vw, 62px)",
-            letterSpacing: "-.03em",
-            lineHeight: 1,
-          }}
-        >
-          From the stage
-        </h2>
-      </div>
-      <div style={{ columns: 3, columnGap: 16 }}>
-        {galleryHeights.map((h, i) => (
-          <div
-            key={i}
-            className="gallery-item"
+    <section id="gallery" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
+      <Reveal>
+        <p className="eyebrow">05 — Moments</p>
+        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">From the stage</h2>
+      </Reveal>
+      <div className="mt-16 columns-2 gap-4 sm:columns-3">
+        {photos.map((photo, i) => (
+          <Reveal
+            key={photo.id}
+            delay={(i % 6) * 40}
+            className="mb-4 overflow-hidden rounded-xl border border-border bg-cover bg-center grayscale brightness-90 transition-all duration-500 hover:scale-[1.02] hover:grayscale-0 hover:brightness-100"
             style={{
               breakInside: "avoid",
-              marginBottom: 16,
-              borderRadius: 14,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,.07)",
-              height: h,
-              backgroundImage: "repeating-linear-gradient(135deg, #151515 0 10px, #101010 10px 20px)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              height: photo.display_height || "260px",
+              backgroundImage: `url(${photo.image_url})`,
             }}
-          >
-            <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, color: "#4d4d4d", letterSpacing: ".1em" }}>PHOTO</span>
-          </div>
+          />
         ))}
       </div>
     </section>

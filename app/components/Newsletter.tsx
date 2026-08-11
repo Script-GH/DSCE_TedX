@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Reveal from "./Reveal";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -33,98 +34,49 @@ export default function Newsletter() {
     }
   };
 
+  const disabled = status === "submitting" || status === "subscribed";
+
   return (
-    <section id="register" className="section-pad" style={{ padding: "40px 40px 120px" }}>
-      <div
-        style={{
-          maxWidth: 1000,
-          margin: "0 auto",
-          borderRadius: 26,
-          border: "1px solid rgba(255,255,255,.1)",
-          background: "radial-gradient(120% 160% at 50% 0%, rgba(230,43,30,.18), transparent 60%), #0a0a0a",
-          padding: "clamp(40px, 6vw, 80px)",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px)",
-            backgroundSize: "26px 26px",
-            opacity: 0.5,
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <h2
-            style={{
-              fontFamily: "'Inter Tight'",
-              fontWeight: 800,
-              fontSize: "clamp(32px,5vw,56px)",
-              letterSpacing: "-.03em",
-              lineHeight: 1,
-              marginBottom: 16,
-            }}
-          >
-            Be the first domino.
-          </h2>
-          <p style={{ fontSize: 16, color: "#a3a3a3", maxWidth: 480, margin: "0 auto 36px", lineHeight: 1.6 }}>
+    <section className="mx-auto max-w-7xl px-5 pb-28 pt-8 md:px-8">
+      <Reveal className="grain relative overflow-hidden rounded-3xl border border-border bg-surface">
+        <div className="stage-glow pointer-events-none absolute inset-0" />
+        <div id="register" className="relative px-6 py-16 text-center md:px-16 md:py-24">
+          <h3 className="display mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)]">Be the first domino.</h3>
+          <p className="mx-auto mt-5 max-w-md text-muted-foreground">
             Join the list for ticket drops, speaker reveals and the story behind Rise of the Domino.
           </p>
-          <form onSubmit={onSubmit} style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", maxWidth: 480, margin: "0 auto" }}>
+
+          <form onSubmit={onSubmit} className="mx-auto mt-9 flex w-full max-w-md flex-col gap-3 sm:flex-row">
+            <label htmlFor="newsletter-email" className="sr-only">
+              Email address
+            </label>
             <input
+              id="newsletter-email"
               type="email"
               required
-              placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              disabled={status === "submitting" || status === "subscribed"}
-              style={{
-                flex: 1,
-                minWidth: 220,
-                padding: "15px 20px",
-                borderRadius: 100,
-                border: "1px solid rgba(255,255,255,.14)",
-                background: "rgba(255,255,255,.04)",
-                color: "#f5f5f5",
-                fontSize: 15,
-                fontFamily: "'Inter'",
-                outline: "none",
-              }}
+              disabled={disabled}
+              placeholder="you@college.edu"
+              className="h-12 w-full rounded-full border border-input bg-background/60 px-5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ted disabled:opacity-60"
             />
             <button
               type="submit"
-              className="btn-accent-lg"
-              disabled={status === "submitting" || status === "subscribed"}
-              style={{
-                background: "#E62B1E",
-                color: "#fff",
-                border: "none",
-                padding: "15px 30px",
-                borderRadius: 100,
-                fontWeight: 600,
-                fontSize: 15,
-                cursor: status === "submitting" || status === "subscribed" ? "default" : "pointer",
-                fontFamily: "'Inter'",
-                opacity: status === "submitting" ? 0.7 : 1,
-              }}
+              disabled={disabled}
+              className="h-12 shrink-0 rounded-full bg-ted px-7 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03] disabled:opacity-70"
             >
-              {status === "subscribed" ? "You’re in ✓" : status === "submitting" ? "Sending…" : "Notify me"}
+              {status === "subscribed" ? "You're in ✓" : status === "submitting" ? "Sending…" : "Notify me"}
             </button>
           </form>
-          {status === "error" && (
-            <p style={{ color: "#f87171", fontSize: 14, marginTop: 14 }}>{error}</p>
-          )}
+
+          {status === "error" && <p className="mt-4 text-sm text-ted-glow">{error}</p>}
           {status === "subscribed" && (
-            <p style={{ color: "#a3a3a3", fontSize: 14, marginTop: 14 }}>
+            <p className="mt-4 text-sm text-muted-foreground">
               Check your inbox — we just sent you a confirmation email.
             </p>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

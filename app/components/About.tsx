@@ -1,53 +1,30 @@
-export default function About() {
+import type { AboutContent } from "../lib/database.types";
+import Reveal from "./Reveal";
+
+export default function About({ about }: { about: AboutContent }) {
   return (
-    <section id="about" className="section-pad" style={{ padding: "100px 40px", maxWidth: 1320, margin: "0 auto" }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "center" }}>
-        <div style={{ flex: "1 1 420px" }}>
-          <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 12,
-              letterSpacing: ".22em",
-              textTransform: "uppercase",
-              color: "#E62B1E",
-              marginBottom: 16,
-            }}
+    <section id="about" className="relative mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
+      <div className="grid gap-14 md:grid-cols-12 md:items-center">
+        <Reveal className="md:col-span-5">
+          <p className="eyebrow">{about.eyebrow}</p>
+          <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">{about.heading}</h2>
+        </Reveal>
+
+        <div className="md:col-span-6 md:col-start-7">
+          <Reveal delay={80}>
+            <p className="text-lg leading-relaxed text-foreground/85">{about.body}</p>
+          </Reveal>
+          <Reveal
+            delay={160}
+            className="mt-10 aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-surface bg-cover bg-center"
+            style={about.imageUrl ? { backgroundImage: `url(${about.imageUrl})` } : undefined}
           >
-            About Us
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Inter Tight'",
-              fontWeight: 800,
-              fontSize: "clamp(34px, 5vw, 62px)",
-              letterSpacing: "-.03em",
-              lineHeight: 1,
-              marginBottom: 22,
-            }}
-          >
-            The idea behind TEDxDSCE
-          </h2>
-          <p style={{ fontSize: 16.5, lineHeight: 1.7, color: "#a3a3a3", maxWidth: 540 }}>
-            TEDxDSCE brings the TED experience to Dayananda Sagar College of Engineering — an independently
-            organized event where students, faculty and the wider Bengaluru community gather to hear ideas
-            worth spreading. Full story coming soon.
-          </p>
-        </div>
-        <div
-          style={{
-            flex: "1 1 320px",
-            minHeight: 280,
-            borderRadius: 18,
-            border: "1px solid rgba(255,255,255,.09)",
-            backgroundImage: "repeating-linear-gradient(135deg, #161616 0 10px, #101010 10px 20px)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "#4d4d4d", letterSpacing: ".12em" }}>
-            CONTENT COMING SOON
-          </span>
+            {!about.imageUrl && (
+              <div className="flex h-full items-center justify-center">
+                <span className="eyebrow text-muted-foreground/60">Content coming soon</span>
+              </div>
+            )}
+          </Reveal>
         </div>
       </div>
     </section>

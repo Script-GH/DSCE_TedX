@@ -1,55 +1,31 @@
-const teamSlots = Array.from({ length: 6 });
+import type { TeamMemberRow } from "../lib/database.types";
+import Reveal from "./Reveal";
 
-export default function Team() {
+const FALLBACK_PHOTOS = [
+  "/images/speaker-1.jpg",
+  "/images/speaker-2.jpg",
+  "/images/speaker-3.jpg",
+  "/images/speaker-4.jpg",
+];
+
+export default function Team({ team }: { team: TeamMemberRow[] }) {
   return (
-    <section id="team" className="section-pad" style={{ padding: "100px 40px", maxWidth: 1320, margin: "0 auto" }}>
-      <div style={{ marginBottom: 48 }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#E62B1E",
-            marginBottom: 16,
-          }}
-        >
-          The Organizers
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
-            fontSize: "clamp(34px, 5vw, 62px)",
-            letterSpacing: "-.03em",
-            lineHeight: 1,
-          }}
-        >
-          Meet the team
-        </h2>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 22 }}>
-        {teamSlots.map((_, i) => (
-          <div key={i} style={{ textAlign: "center" }}>
+    <section id="team" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
+      <Reveal>
+        <p className="eyebrow">The Organisers</p>
+        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Meet the team</h2>
+      </Reveal>
+
+      <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
+        {team.map((member, i) => (
+          <Reveal key={member.id} delay={i * 50} className="text-center">
             <div
-              style={{
-                aspectRatio: "1/1",
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,.09)",
-                backgroundImage: "repeating-linear-gradient(135deg, #161616 0 10px, #101010 10px 20px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 16,
-              }}
-            >
-              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, color: "#4d4d4d", letterSpacing: ".1em" }}>
-                PHOTO
-              </span>
-            </div>
-            <div style={{ fontFamily: "'Inter Tight'", fontWeight: 600, fontSize: 15.5, marginBottom: 4 }}>Team Member</div>
-            <div style={{ fontSize: 12.5, color: "#737373" }}>Role coming soon</div>
-          </div>
+              className="mx-auto aspect-square overflow-hidden rounded-full border border-border bg-surface bg-cover bg-center"
+              style={{ backgroundImage: `url(${member.image_url || FALLBACK_PHOTOS[i % FALLBACK_PHOTOS.length]})` }}
+            />
+            <p className="mt-4 text-sm font-semibold">{member.name}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{member.role}</p>
+          </Reveal>
         ))}
       </div>
     </section>

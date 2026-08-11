@@ -92,24 +92,22 @@ export default function SpeakerForm() {
             width: 64,
             height: 64,
             borderRadius: "50%",
-            background: "rgba(230,43,30,.15)",
-            border: "1px solid rgba(230,43,30,.4)",
+            background: "color-mix(in oklab, var(--ted) 15%, transparent)",
+            border: "1px solid color-mix(in oklab, var(--ted) 40%, transparent)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: 28,
-            color: "#E62B1E",
+            color: "var(--ted)",
             marginBottom: 26,
           }}
         >
           ✓
         </div>
         <h1
+          className="display"
           style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
             fontSize: "clamp(28px,4vw,42px)",
-            letterSpacing: "-.03em",
             marginBottom: 16,
           }}
         >
@@ -122,12 +120,12 @@ export default function SpeakerForm() {
         </p>
         <Link
           href="/"
-          className="btn-accent-lg"
+          className="transition-transform duration-300 hover:scale-[1.03]"
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: 9,
-            background: "#E62B1E",
+            background: "var(--ted)",
             color: "#fff",
             padding: "15px 28px",
             borderRadius: 100,
@@ -146,7 +144,11 @@ export default function SpeakerForm() {
   return (
     <div style={{ padding: "140px 24px 120px" }}>
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
-        <Link href="/" className="link-fade-white" style={{ fontSize: 13.5, color: "#a3a3a3", marginBottom: 30, display: "inline-block" }}>
+        <Link
+          href="/"
+          className="text-muted-foreground transition-colors hover:text-foreground"
+          style={{ fontSize: 13.5, marginBottom: 30, display: "inline-block" }}
+        >
           &larr; Back to home
         </Link>
 
@@ -156,18 +158,16 @@ export default function SpeakerForm() {
             fontSize: 12,
             letterSpacing: ".22em",
             textTransform: "uppercase",
-            color: "#E62B1E",
+            color: "var(--ted)",
             marginBottom: 16,
           }}
         >
           Speaker Application
         </div>
         <h1
+          className="display"
           style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
             fontSize: "clamp(32px, 5vw, 52px)",
-            letterSpacing: "-.03em",
             lineHeight: 1.05,
             marginBottom: 18,
           }}
@@ -176,7 +176,7 @@ export default function SpeakerForm() {
         </h1>
         <p style={{ fontSize: 16, color: "#a3a3a3", lineHeight: 1.65, maxWidth: 560 }}>
           Every talk starts with one idea worth spreading. Tell us about yours — fields marked{" "}
-          <span style={{ color: "#E62B1E" }}>*</span> are required.
+          <span style={{ color: "var(--ted)" }}>*</span> are required.
         </p>
 
         <form onSubmit={onSubmit} noValidate style={{ marginTop: 20 }}>
@@ -186,8 +186,8 @@ export default function SpeakerForm() {
                 marginTop: 30,
                 padding: "14px 18px",
                 borderRadius: 10,
-                border: "1px solid rgba(230,43,30,.4)",
-                background: "rgba(230,43,30,.08)",
+                border: "1px solid color-mix(in oklab, var(--ted) 40%, transparent)",
+                background: "color-mix(in oklab, var(--ted) 8%, transparent)",
                 color: "#ff8a7e",
                 fontSize: 14,
               }}
@@ -201,8 +201,8 @@ export default function SpeakerForm() {
                 marginTop: 30,
                 padding: "14px 18px",
                 borderRadius: 10,
-                border: "1px solid rgba(230,43,30,.4)",
-                background: "rgba(230,43,30,.08)",
+                border: "1px solid color-mix(in oklab, var(--ted) 40%, transparent)",
+                background: "color-mix(in oklab, var(--ted) 8%, transparent)",
                 color: "#ff8a7e",
                 fontSize: 14,
               }}
@@ -347,7 +347,7 @@ export default function SpeakerForm() {
             style={{
               marginTop: 30,
               width: "100%",
-              background: "#E62B1E",
+              background: "var(--ted)",
               color: "#fff",
               border: "none",
               padding: "17px 32px",

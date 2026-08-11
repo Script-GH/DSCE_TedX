@@ -19,31 +19,39 @@ import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
+import { getHomePageContent } from "./lib/content";
 
-export default function Home() {
+// Content is admin-editable in Supabase — render fresh on every request so
+// changes published from the admin dashboard show up immediately instead of
+// waiting for a rebuild/redeploy of this static page.
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const content = await getHomePageContent();
+
   return (
-    <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+    <div style={{ position: "relative", width: "100%" }}>
       <Loader />
       <ScrollProgressBar />
       <MouseGlow />
-      <SiteHeader />
-      <Hero />
-      <Ticker />
-      <About />
-      <Speakers />
-      <EventCountdown />
-      <Stats />
-      <Timeline />
-      <Blogs />
-      <Videos />
-      <Team />
-      <Testimonials />
-      <Sponsors />
-      <Gallery />
-      <Faq />
-      <Contact />
+      <SiteHeader navLinks={content.navLinks} />
+      <Hero hero={content.hero} />
+      <Ticker words={content.hero.tickerWordsCsv.split(",").map((w) => w.trim()).filter(Boolean)} />
+      <About about={content.about} />
+      <Speakers speakers={content.speakers} />
+      <EventCountdown event={content.event} />
+      <Stats stats={content.stats} />
+      <Timeline timelineStages={content.timeline} />
+      <Blogs blogs={content.blogs} />
+      <Videos videos={content.videos} />
+      <Team team={content.team} />
+      <Testimonials testimonials={content.testimonials} />
+      <Sponsors sponsors={content.sponsors} />
+      <Gallery photos={content.gallery} />
+      <Faq faqs={content.faqs} />
+      <Contact contact={content.contact} />
       <Newsletter />
-      <Footer />
+      <Footer footerText={content.footerText} footerLinks={content.footerLinks} />
     </div>
   );
 }

@@ -1,90 +1,38 @@
-import { videos } from "../lib/data";
+import { Play } from "lucide-react";
+import type { VideoRow } from "../lib/database.types";
+import Reveal from "./Reveal";
 
-export default function Videos() {
+export default function Videos({ videos }: { videos: VideoRow[] }) {
   return (
-    <section id="videos" className="section-pad" style={{ padding: "100px 40px", maxWidth: 1320, margin: "0 auto" }}>
-      <div style={{ marginBottom: 48 }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#E62B1E",
-            marginBottom: 16,
-          }}
-        >
-          04 — Ideas Worth Spreading
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
-            fontSize: "clamp(34px, 5vw, 62px)",
-            letterSpacing: "-.03em",
-            lineHeight: 1,
-          }}
-        >
-          Watch previous talks
-        </h2>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 22 }}>
-        {videos.map((v) => (
-          <div
-            key={v.title}
-            className="video-card"
-            style={{
-              borderRadius: 16,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,.09)",
-              background: "#0b0b0b",
-              cursor: "pointer",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                aspectRatio: "16/9",
-                backgroundImage: "repeating-linear-gradient(135deg, #161616 0 10px, #101010 10px 20px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+    <section id="videos" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
+      <Reveal>
+        <p className="eyebrow">04 — Ideas Worth Spreading</p>
+        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Watch previous talks</h2>
+      </Reveal>
+      <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {videos.map((v, i) => (
+          <Reveal key={v.id} delay={i * 60}>
+            <a
+              href={v.video_url || undefined}
+              target={v.video_url ? "_blank" : undefined}
+              rel={v.video_url ? "noopener noreferrer" : undefined}
+              className="group block overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-ted/40"
             >
-              <span
-                style={{
-                  width: 58,
-                  height: 58,
-                  borderRadius: "50%",
-                  background: "rgba(230,43,30,.92)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 8px 30px rgba(230,43,30,.4)",
-                }}
+              <div
+                className="relative flex aspect-video items-center justify-center bg-surface-2 bg-cover bg-center"
+                style={v.thumbnail_url ? { backgroundImage: `url(${v.thumbnail_url})` } : undefined}
               >
-                <span
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderLeft: "15px solid #fff",
-                    borderTop: "9px solid transparent",
-                    borderBottom: "9px solid transparent",
-                    marginLeft: 4,
-                  }}
-                />
-              </span>
-            </div>
-            <div style={{ padding: 20 }}>
-              <div style={{ fontSize: 12, color: "#E62B1E", fontFamily: "'JetBrains Mono'", letterSpacing: ".1em", marginBottom: 8 }}>
-                {v.dur}
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ted shadow-[var(--shadow-ted)] transition-transform duration-300 group-hover:scale-110">
+                  <Play className="ml-0.5 h-5 w-5 fill-current text-primary-foreground" />
+                </span>
               </div>
-              <h3 style={{ fontFamily: "'Inter Tight'", fontWeight: 600, fontSize: 19, letterSpacing: "-.01em", marginBottom: 6 }}>
-                {v.title}
-              </h3>
-              <div style={{ fontSize: 13.5, color: "#8f8f8f" }}>{v.speaker}</div>
-            </div>
-          </div>
+              <div className="p-6">
+                <p className="eyebrow">{v.duration}</p>
+                <h3 className="display mt-2.5 text-xl">{v.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{v.speaker}</p>
+              </div>
+            </a>
+          </Reveal>
         ))}
       </div>
     </section>

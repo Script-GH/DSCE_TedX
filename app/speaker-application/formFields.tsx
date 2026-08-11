@@ -48,7 +48,7 @@ export function FieldWrap({ label, required, hint, error, children }: FieldWrapP
   return (
     <div style={{ marginBottom: 26 }}>
       <label style={labelStyle}>
-        {label} {required && <span style={{ color: "#E62B1E" }}>*</span>}
+        {label} {required && <span style={{ color: "var(--ted)" }}>*</span>}
       </label>
       {hint && <div style={hintStyle}>{hint}</div>}
       {children}
@@ -162,7 +162,7 @@ export function YesNoToggle({ label, value, onChange, required, error }: YesNoTo
                 fontSize: 14,
                 fontWeight: 600,
                 cursor: "pointer",
-                border: `1px solid ${active ? "#E62B1E" : "rgba(255,255,255,.16)"}`,
+                border: `1px solid ${active ? "var(--ted)" : "rgba(255,255,255,.16)"}`,
                 background: active ? "rgba(230,43,30,.15)" : "rgba(255,255,255,.03)",
                 color: active ? "#ff8a7e" : "#d4d4d4",
               }}
@@ -203,7 +203,7 @@ export function CheckboxRow({ checked, onChange, children, error }: CheckboxRowP
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        style={{ marginTop: 3, width: 16, height: 16, accentColor: "#E62B1E", cursor: "pointer", flexShrink: 0 }}
+        style={{ marginTop: 3, width: 16, height: 16, accentColor: "var(--ted)", cursor: "pointer", flexShrink: 0 }}
       />
       <span style={{ fontSize: 14.5, lineHeight: 1.55, color: "#d4d4d4" }}>{children}</span>
     </label>
@@ -219,18 +219,16 @@ export function SectionHeading({ eyebrow, title }: { eyebrow: string; title: str
           fontSize: 11.5,
           letterSpacing: ".2em",
           textTransform: "uppercase",
-          color: "#E62B1E",
+          color: "var(--ted)",
           marginBottom: 10,
         }}
       >
         {eyebrow}
       </div>
       <h2
+        className="display"
         style={{
-          fontFamily: "'Inter Tight'",
-          fontWeight: 700,
           fontSize: "clamp(22px, 3vw, 28px)",
-          letterSpacing: "-.02em",
         }}
       >
         {title}

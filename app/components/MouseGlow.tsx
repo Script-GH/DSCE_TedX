@@ -20,19 +20,11 @@ export default function MouseGlow() {
   return (
     <div
       ref={glowRef}
+      className="pointer-events-none fixed top-0 left-0 z-[1] h-[520px] w-[520px] rounded-full"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: 520,
-        height: 520,
         margin: "-260px 0 0 -260px",
-        borderRadius: "50%",
-        pointerEvents: "none",
-        zIndex: 1,
-        background: "radial-gradient(circle, rgba(230,43,30,.16), transparent 62%)",
+        background: "radial-gradient(circle, color-mix(in oklab, var(--ted) 16%, transparent), transparent 62%)",
         mixBlendMode: "screen",
-        transition: "opacity .4s",
       }}
     />
   );

@@ -1,68 +1,48 @@
-const blogSlots = Array.from({ length: 3 });
+import type { BlogPostRow } from "../lib/database.types";
+import Reveal from "./Reveal";
 
-export default function Blogs() {
+export default function Blogs({ blogs }: { blogs: BlogPostRow[] }) {
   return (
-    <section id="blogs" className="section-pad" style={{ padding: "100px 40px", maxWidth: 1320, margin: "0 auto" }}>
-      <div style={{ marginBottom: 48 }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#E62B1E",
-            marginBottom: 16,
-          }}
-        >
-          From the Blog
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
-            fontSize: "clamp(34px, 5vw, 62px)",
-            letterSpacing: "-.03em",
-            lineHeight: 1,
-          }}
-        >
-          Stories &amp; insights
-        </h2>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 22 }}>
-        {blogSlots.map((_, i) => (
-          <div
-            key={i}
-            style={{
-              borderRadius: 16,
-              overflow: "hidden",
-              border: "1px solid rgba(255,255,255,.09)",
-              background: "#0b0b0b",
-            }}
-          >
-            <div
-              style={{
-                aspectRatio: "16/9",
-                backgroundImage: "repeating-linear-gradient(135deg, #161616 0 10px, #101010 10px 20px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, color: "#4d4d4d", letterSpacing: ".1em" }}>
-                COMING SOON
-              </span>
-            </div>
-            <div style={{ padding: 20 }}>
-              <div style={{ fontSize: 12, color: "#E62B1E", fontFamily: "'JetBrains Mono'", letterSpacing: ".1em", marginBottom: 8 }}>
-                UPCOMING POST
+    <section id="blogs" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
+      <Reveal>
+        <p className="eyebrow">From the Blog</p>
+        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Stories &amp; insights</h2>
+      </Reveal>
+      <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {blogs.map((post, i) => {
+          const card = (
+            <>
+              <div
+                className="aspect-video bg-surface-2 bg-cover bg-center"
+                style={post.cover_image_url ? { backgroundImage: `url(${post.cover_image_url})` } : undefined}
+              >
+                {!post.cover_image_url && (
+                  <div className="flex h-full items-center justify-center">
+                    <span className="eyebrow text-[10px] text-muted-foreground/50">Coming soon</span>
+                  </div>
+                )}
               </div>
-              <h3 style={{ fontFamily: "'Inter Tight'", fontWeight: 600, fontSize: 19, letterSpacing: "-.01em", marginBottom: 6 }}>
-                Blog post title
-              </h3>
-              <div style={{ fontSize: 13.5, color: "#8f8f8f" }}>Content coming soon.</div>
-            </div>
-          </div>
-        ))}
+              <div className="p-6">
+                <p className="eyebrow">Upcoming post</p>
+                <h3 className="display mt-2.5 text-xl">{post.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{post.excerpt || "Content coming soon."}</p>
+              </div>
+            </>
+          );
+          const cls =
+            "group overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-ted/40";
+          return (
+            <Reveal key={post.id} delay={i * 60}>
+              {post.link_url ? (
+                <a href={post.link_url} className={cls}>
+                  {card}
+                </a>
+              ) : (
+                <div className={cls}>{card}</div>
+              )}
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );

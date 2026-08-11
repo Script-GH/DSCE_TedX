@@ -1,48 +1,25 @@
-import { sponsorSlots } from "../lib/data";
+import type { SponsorRow } from "../lib/database.types";
 
-export default function Sponsors() {
+export default function Sponsors({ sponsors }: { sponsors: SponsorRow[] }) {
+  const loop = [...sponsors, ...sponsors];
   return (
-    <section id="sponsors" style={{ padding: "80px 0" }}>
-      <div className="section-pad" style={{ textAlign: "center", marginBottom: 44, padding: "0 40px" }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#737373",
-          }}
-        >
-          Powered by our partners
-        </div>
-      </div>
+    <section id="sponsors" className="py-20">
+      <p className="eyebrow px-5 text-center text-muted-foreground/70 md:px-8">Powered by our partners</p>
       <div
+        className="mt-11 overflow-hidden"
         style={{
-          overflow: "hidden",
           WebkitMaskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
           maskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
         }}
       >
-        <div style={{ display: "flex", width: "max-content", alignItems: "center", gap: 64, animation: "marquee 30s linear infinite" }}>
-          {sponsorSlots.map((_, i) => (
+        <div className="marquee-track items-center gap-16">
+          {loop.map((s, i) => (
             <div
-              key={i}
-              style={{
-                height: 42,
-                width: 150,
-                borderRadius: 8,
-                backgroundImage: "repeating-linear-gradient(135deg, #161616 0 8px, #111 8px 16px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "'JetBrains Mono'",
-                fontSize: 10,
-                color: "#4d4d4d",
-                letterSpacing: ".1em",
-                flexShrink: 0,
-              }}
+              key={`${s.id}-${i}`}
+              className="flex h-11 min-w-[150px] shrink-0 items-center justify-center rounded-lg bg-surface-2 bg-contain bg-center bg-no-repeat"
+              style={s.logo_url ? { backgroundImage: `url(${s.logo_url})` } : undefined}
             >
-              LOGO
+              {!s.logo_url && <span className="eyebrow text-[10px] text-muted-foreground/50">Logo</span>}
             </div>
           ))}
         </div>

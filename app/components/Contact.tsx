@@ -1,36 +1,33 @@
-export default function Contact() {
+import { Mail } from "lucide-react";
+import type { ContactContent } from "../lib/database.types";
+import Reveal from "./Reveal";
+
+export default function Contact({ contact }: { contact: ContactContent }) {
+  const details = [contact.phone, contact.address].filter(Boolean);
+
   return (
-    <section id="contact" className="section-pad" style={{ padding: "100px 40px" }}>
-      <div style={{ maxWidth: 820, margin: "0 auto", textAlign: "center" }}>
-        <div
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 12,
-            letterSpacing: ".22em",
-            textTransform: "uppercase",
-            color: "#E62B1E",
-            marginBottom: 16,
-          }}
-        >
-          Get in Touch
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Inter Tight'",
-            fontWeight: 800,
-            fontSize: "clamp(34px, 5vw, 62px)",
-            letterSpacing: "-.03em",
-            lineHeight: 1,
-            marginBottom: 22,
-          }}
-        >
-          Contact us
-        </h2>
-        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#a3a3a3", maxWidth: 480, margin: "0 auto" }}>
-          Contact details and a direct enquiry form are coming soon. In the meantime, reach us through our
-          social channels in the footer below.
-        </p>
-      </div>
+    <section id="contact" className="mx-auto max-w-7xl px-5 pb-8 pt-28 md:px-8 md:pt-40">
+      <Reveal className="mx-auto max-w-2xl text-center">
+        <p className="eyebrow">{contact.eyebrow}</p>
+        <h2 className="display mt-5 text-[clamp(2.2rem,5vw,3.75rem)]">{contact.heading}</h2>
+        <p className="mt-5 leading-relaxed text-muted-foreground">{contact.body}</p>
+        {contact.email && (
+          <a
+            href={`mailto:${contact.email}`}
+            className="mt-6 inline-flex items-center gap-2 text-sm text-foreground underline-offset-4 hover:underline"
+          >
+            <Mail className="h-4 w-4 text-ted" />
+            {contact.email}
+          </a>
+        )}
+        {details.length > 0 && (
+          <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            {details.map((d) => (
+              <span key={d}>{d}</span>
+            ))}
+          </div>
+        )}
+      </Reveal>
     </section>
   );
 }

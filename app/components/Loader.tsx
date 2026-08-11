@@ -12,47 +12,25 @@ export default function Loader() {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 9999,
-        background: "#050505",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 34,
-        transition: "opacity .8s ease, visibility .8s ease",
-        opacity: visible ? 1 : 0,
-        visibility: visible ? "visible" : "hidden",
-      }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-8 bg-background transition-[opacity,visibility] duration-700"
+      style={{ opacity: visible ? 1 : 0, visibility: visible ? "visible" : "hidden" }}
     >
-      <div style={{ display: "flex", alignItems: "flex-end", gap: 9, height: 70 }}>
+      <div className="flex h-[70px] items-end gap-2">
         {[0, 0.12, 0.24, 0.36].map((delay, i) => (
           <div
             key={i}
+            className="w-[15px] origin-bottom-left rounded-[3px]"
             style={{
-              width: 15,
               height: 60,
-              background: i === 0 ? "#E62B1E" : "#f5f5f5",
-              borderRadius: 3,
-              transformOrigin: "bottom left",
+              background: i === 0 ? "var(--ted)" : "var(--foreground)",
               animation: `loaderTip 1.1s ${delay}s ease-in-out infinite alternate`,
             }}
           />
         ))}
       </div>
-      <div
-        style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 12,
-          letterSpacing: ".32em",
-          color: "#737373",
-          textTransform: "uppercase",
-        }}
-      >
-        TEDx<span style={{ color: "#E62B1E" }}>DSCE</span> — Rise of the Domino
-      </div>
+      <p className="eyebrow">
+        TEDx<span className="text-ted">DSCE</span> — Rise of the Domino
+      </p>
     </div>
   );
 }
