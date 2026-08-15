@@ -15,7 +15,7 @@ export default function EventCountdown({ event }: { event: EventContent }) {
   ];
 
   return (
-    <section id="event" className="mx-auto max-w-7xl px-5 py-8 md:px-8">
+    <section id="countdown" className="mx-auto max-w-7xl px-5 py-8 md:px-8">
       <Reveal className="grain relative overflow-hidden rounded-3xl border border-border bg-surface">
         <div className="stage-glow pointer-events-none absolute inset-0 opacity-70" />
         <div className="relative grid gap-12 p-8 md:grid-cols-2 md:p-16">
@@ -26,14 +26,8 @@ export default function EventCountdown({ event }: { event: EventContent }) {
               A full day of talks, performances and conversations built around a single question:
               what happens when one idea refuses to stand still?
             </p>
-            <a
-              href="#register"
-              className="mt-9 inline-flex rounded-full bg-ted px-7 py-3.5 font-medium text-primary-foreground shadow-[var(--shadow-ted)] transition-transform duration-300 hover:scale-[1.03]"
-            >
-              Reserve your seat
-            </a>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               {[
                 { value: cd.days, label: "Days" },
                 { value: cd.hours, label: "Hours" },

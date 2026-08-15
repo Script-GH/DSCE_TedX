@@ -5,13 +5,12 @@ import SiteHeader from "./components/SiteHeader";
 import Hero from "./components/Hero";
 import Ticker from "./components/Ticker";
 import About from "./components/About";
-import Speakers from "./components/Speakers";
+import Tickets from "./components/Tickets";
 import EventCountdown from "./components/EventCountdown";
 import Stats from "./components/Stats";
 import Timeline from "./components/Timeline";
 import Blogs from "./components/Blogs";
 import Videos from "./components/Videos";
-import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import Sponsors from "./components/Sponsors";
 import Gallery from "./components/Gallery";
@@ -37,14 +36,13 @@ export default async function Home() {
       <SiteHeader navLinks={content.navLinks} />
       <Hero hero={content.hero} />
       <Ticker words={content.hero.tickerWordsCsv.split(",").map((w) => w.trim()).filter(Boolean)} />
+      <Tickets event={content.event} />
       <About about={content.about} />
-      <Speakers speakers={content.speakers} />
       <EventCountdown event={content.event} />
       <Stats stats={content.stats} />
       <Timeline timelineStages={content.timeline} />
       <Blogs blogs={content.blogs} />
       <Videos videos={content.videos} />
-      <Team team={content.team} />
       <Testimonials testimonials={content.testimonials} />
       <Sponsors sponsors={content.sponsors} />
       <Gallery photos={content.gallery} />

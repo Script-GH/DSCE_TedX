@@ -6,7 +6,12 @@ import { X } from "lucide-react";
 import type { NavLinkRow } from "../lib/database.types";
 import { cn } from "../lib/utils";
 
-export default function SiteHeader({ navLinks }: { navLinks: NavLinkRow[] }) {
+// Speakers and Team sections are temporarily off the homepage — hide their
+// nav entries too, without touching the admin-managed nav_links data.
+const HIDDEN_NAV_HREFS = new Set(["#speakers", "#team"]);
+
+export default function SiteHeader({ navLinks: allNavLinks }: { navLinks: NavLinkRow[] }) {
+  const navLinks = allNavLinks.filter((l) => !HIDDEN_NAV_HREFS.has(l.href));
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,18 +32,18 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLinkRow[] }) {
           scrolled ? "bg-background/80 backdrop-blur-xl" : "bg-transparent"
         )}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
+        <nav className="mx-auto grid h-16 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-5 md:px-8">
           <a href="#top" className="display text-lg tracking-tight">
             <span className="text-ted">TEDx</span>
             <span className="text-foreground">DSCE</span>
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center justify-center gap-8 md:flex">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="relative text-sm text-muted-foreground transition-colors hover:text-foreground after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-ted after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+                  className="relative text-base text-muted-foreground transition-colors hover:text-foreground after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-ted after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
                 >
                   {l.label}
                 </a>
@@ -46,7 +51,7 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLinkRow[] }) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-self-end gap-2">
             <Link
               href="/speaker-application"
               className="hidden rounded-full border border-border px-4 py-2 text-sm text-foreground transition-colors hover:bg-secondary sm:inline-flex"
