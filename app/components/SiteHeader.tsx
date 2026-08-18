@@ -6,9 +6,9 @@ import { X } from "lucide-react";
 import type { NavLinkRow } from "../lib/database.types";
 import { cn } from "../lib/utils";
 
-// Speakers and Team sections are temporarily off the homepage — hide their
-// nav entries too, without touching the admin-managed nav_links data.
-const HIDDEN_NAV_HREFS = new Set(["#speakers", "#team"]);
+// Speakers section is temporarily off the homepage — hide its nav entry too,
+// without touching the admin-managed nav_links data.
+const HIDDEN_NAV_HREFS = new Set(["#speakers"]);
 
 export default function SiteHeader({ navLinks: allNavLinks }: { navLinks: NavLinkRow[] }) {
   const navLinks = allNavLinks.filter((l) => !HIDDEN_NAV_HREFS.has(l.href));

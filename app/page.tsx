@@ -9,12 +9,13 @@ import Tickets from "./components/Tickets";
 import EventCountdown from "./components/EventCountdown";
 import Stats from "./components/Stats";
 import Timeline from "./components/Timeline";
-import Blogs from "./components/Blogs";
-import Videos from "./components/Videos";
+// import Blogs from "./components/Blogs";
+// import Videos from "./components/Videos";
+import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import Sponsors from "./components/Sponsors";
 import Gallery from "./components/Gallery";
-import Faq from "./components/Faq";
+// import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
@@ -41,12 +42,13 @@ export default async function Home() {
       <EventCountdown event={content.event} />
       <Stats stats={content.stats} />
       <Timeline timelineStages={content.timeline} />
-      <Blogs blogs={content.blogs} />
-      <Videos videos={content.videos} />
+      {/* <Blogs blogs={content.blogs} /> */}
+      {/* <Videos videos={content.videos} /> */}
+      <Team team={content.team} />
       <Testimonials testimonials={content.testimonials} />
       <Sponsors sponsors={content.sponsors} />
       <Gallery photos={content.gallery} />
-      <Faq faqs={content.faqs} />
+      {/* <Faq faqs={content.faqs} /> */}
       <Contact contact={content.contact} />
       <Newsletter />
       <Footer footerText={content.footerText} footerLinks={content.footerLinks} />
