@@ -1,14 +1,33 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import type { SpeakerApplicationInput } from "./validateSpeakerApplication";
 
-let resend: Resend | null = null;
+let transporter: nodemailer.Transporter | null = null;
 
-function getResend() {
-  if (resend) return resend;
-  const key = process.env.RESEND_API_KEY;
-  if (!key) throw new Error("RESEND_API_KEY is not set.");
-  resend = new Resend(key);
-  return resend;
+function getTransporter() {
+  if (transporter) return transporter;
+
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT || 465);
+  const user = process.env.SMTP_USER;
+  const password = process.env.SMTP_PASSWORD;
+
+  if (!host || !user || !password) {
+    throw new Error(
+      "SMTP configuration is missing. Set SMTP_HOST, SMTP_PORT, SMTP_USER and SMTP_PASSWORD."
+    );
+  }
+
+  transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure: true,
+    auth: {
+      user,
+      pass: password,
+    },
+  });
+
+  return transporter;
 }
 
 const esc = (s: string) =>
@@ -21,7 +40,7 @@ const row = (label: string, value: string) =>
 
 export async function sendSpeakerApplicationNotification(data: SpeakerApplicationInput) {
   const to = process.env.NOTIFY_EMAIL;
-  const from = process.env.NOTIFY_FROM_EMAIL || "TEDxDSCE Applications <onboarding@resend.dev>";
+  const from = process.env.NOTIFY_FROM_EMAIL || `TEDxDSCE Applications <${process.env.SMTP_USER}>`;
   if (!to) throw new Error("NOTIFY_EMAIL is not set.");
 
   const html = `
@@ -63,7 +82,7 @@ export async function sendSpeakerApplicationNotification(data: SpeakerApplicatio
     </div>
   `;
 
-  await getResend().emails.send({
+  await getTransporter().sendMail({
     from,
     to,
     replyTo: data.email,
@@ -73,7 +92,7 @@ export async function sendSpeakerApplicationNotification(data: SpeakerApplicatio
 }
 
 export async function sendNewsletterConfirmation(email: string) {
-  const from = process.env.NOTIFY_FROM_EMAIL || "TEDxDSCE <onboarding@resend.dev>";
+  const from = process.env.NOTIFY_FROM_EMAIL || `TEDxDSCE <${process.env.SMTP_USER}>`;
 
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto;">
@@ -85,7 +104,7 @@ export async function sendNewsletterConfirmation(email: string) {
     </div>
   `;
 
-  await getResend().emails.send({
+  await getTransporter().sendMail({
     from,
     to: email,
     subject: "You’re on the list — TEDxDSCE",
