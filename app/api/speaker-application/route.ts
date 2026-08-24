@@ -73,6 +73,12 @@ export async function POST(request: Request) {
 
   try {
     const supabase = getSupabaseAdmin();
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "The server isn't configured correctly. Please try again later." },
+        { status: 500 }
+      );
+    }
     const { error: dbError } = await supabase.from("speaker_applications").insert(toDbRow(data));
     if (dbError) {
       console.error("Supabase insert failed:", dbError);

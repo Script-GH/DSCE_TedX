@@ -5,11 +5,9 @@ const defaultSponsors: SponsorRow[] = [
     id: "bookmyshow",
     name: "BookMyShow",
     logo_url: "/bookmyshow-logo.jpg",
-    tier: "partner",
+    website_url: "https://bookmyshow.com",
     position: 0,
-    url: "https://bookmyshow.com",
     created_at: "",
-    updated_at: "",
   },
 ];
 
