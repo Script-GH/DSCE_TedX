@@ -11,10 +11,12 @@ import Stats from "./components/Stats";
 import Timeline from "./components/Timeline";
 // import Blogs from "./components/Blogs";
 // import Videos from "./components/Videos";
+import Speakers from "./components/Speakers";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import Sponsors from "./components/Sponsors";
 import Gallery from "./components/Gallery";
+import PreviousTalks from "./components/PreviousTalks";
 // import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
@@ -44,10 +46,12 @@ export default async function Home() {
       <Timeline timelineStages={content.timeline} />
       {/* <Blogs blogs={content.blogs} /> */}
       {/* <Videos videos={content.videos} /> */}
+      <Speakers />
       <Team team={content.team} />
       <Testimonials testimonials={content.testimonials} />
       <Sponsors sponsors={content.sponsors} />
       <Gallery photos={content.gallery} />
+      <PreviousTalks />
       {/* <Faq faqs={content.faqs} /> */}
       <Contact contact={content.contact} />
       <Newsletter />

@@ -29,7 +29,7 @@ export default function Loader() {
         ))}
       </div>
       <p className="eyebrow">
-        TEDx<span className="text-ted">DSCE</span> — Rise of the Domino
+        TEDx<span className="text-ted">DSCE</span> — Rise of the Domineo
       </p>
     </div>
   );

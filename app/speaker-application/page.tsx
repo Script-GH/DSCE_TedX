@@ -3,7 +3,7 @@ import SpeakerForm from "./SpeakerForm";
 
 export const metadata: Metadata = {
   title: "Become a Speaker — TEDxDSCE",
-  description: "Apply to speak at TEDxDSCE: Rise of the Domino.",
+  description: "Apply to speak at TEDxDSCE: Rise of the Domineo.",
 };
 
 export default function SpeakerApplicationPage() {

@@ -7,14 +7,14 @@ import type { AboutContent, ContactContent, EventContent, FooterTextContent, Her
 export const defaultHeroContent: HeroContent = {
   eyebrow: "TEDx Dayananda Sagar College of Engineering",
   headlineLine1: "Rise of the",
-  headlineLine2: "Domino",
+  headlineLine2: "Domineo",
   tagline: "One Idea. One Voice. Infinite Impact.",
   intro:
     "TEDxDSCE is an independently organized TED event bringing together thinkers, creators and innovators who spark change — where one thought sets everything in motion.",
   ctaPrimaryLabel: "Register Now",
   ctaSecondaryLabel: "Become a Speaker",
   ctaTertiaryLabel: "Watch Previous Talks",
-  tickerWordsCsv: "One Idea,Infinite Impact,Rise of the Domino,One Voice,TEDxDSCE 2026",
+  tickerWordsCsv: "One Idea,Infinite Impact,Rise of the Domineo,One Voice,TEDxDSCE 2026",
 };
 
 export const defaultAboutContent: AboutContent = {
@@ -36,7 +36,7 @@ export const defaultContactContent: ContactContent = {
 };
 
 export const defaultEventContent: EventContent = {
-  heading: "Rise of the Domino — Live on Campus",
+  heading: "Rise of the Domineo — Live on Campus",
   targetIso: "2026-11-21T09:00:00",
   dateLabel: "Nov 21, 2026",
   venueLabel: "DSCE Auditorium, Bengaluru",

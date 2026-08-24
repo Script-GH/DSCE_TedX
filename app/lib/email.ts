@@ -98,7 +98,7 @@ export async function sendNewsletterConfirmation(email: string) {
     <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto;">
       <h2 style="color:#E62B1E;">You’re on the list.</h2>
       <p style="color:#111;font-size:15px;line-height:1.6;">
-        Thanks for signing up for TEDxDSCE — Rise of the Domino. We’ll email
+        Thanks for signing up for TEDxDSCE — Rise of the Domineo. We’ll email
         you first with ticket drops, speaker reveals and event updates.
       </p>
     </div>

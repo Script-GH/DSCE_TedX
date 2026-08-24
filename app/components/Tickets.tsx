@@ -25,7 +25,7 @@ export default function Tickets({ event }: { event: EventContent }) {
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-center leading-relaxed text-muted-foreground">
           Twelve speakers. One stage. One day of ideas that refuse to stand still. Tickets for
-          TEDxDSCE 2026 &mdash; &ldquo;Rise of the Domino&rdquo; &mdash; are live exclusively on
+          TEDxDSCE 2026 &mdash; &ldquo;Rise of the Domineo&rdquo; &mdash; are live exclusively on
           BookMyShow.
         </p>
       </Reveal>
