@@ -115,7 +115,7 @@ export default function SpeakerForm() {
         </h1>
         <p style={{ fontSize: 16, color: "#a3a3a3", maxWidth: 480, lineHeight: 1.6, marginBottom: 36 }}>
           Thanks for putting your idea forward, {data.fullName.split(" ")[0] || "friend"}. Our curation team
-          reviews every submission — if it&apos;s a fit for Rise of the Domino, we&apos;ll reach out at{" "}
+          reviews every submission — if it&apos;s a fit for Rise of the Domineo, we&apos;ll reach out at{" "}
           <strong style={{ color: "#f5f5f5" }}>{data.email}</strong>.
         </p>
         <Link

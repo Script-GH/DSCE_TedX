@@ -53,14 +53,17 @@ export type HomePageContent = {
 
 async function getSiteContent<K extends SiteContentKey>(key: K) {
   const supabase = getSupabaseAdmin();
+  if (!supabase) return null;
   const { data } = await supabase.from("site_content").select("*").eq("key", key).maybeSingle();
   return data?.value ?? null;
 }
 
 async function orderedList<T>(table: ListTable) {
   // Same generic .from() typing caveat as adminListResource.ts — see there.
+  const supabase = getSupabaseAdmin();
+  if (!supabase) return [] as T[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- deliberate escape hatch
-  const db = getSupabaseAdmin() as unknown as { from: (t: string) => any };
+  const db = supabase as unknown as { from: (t: string) => any };
   const { data } = await db.from(table).select("*").order("position", { ascending: true });
   return (data ?? []) as T[];
 }
