@@ -6,12 +6,16 @@ import { X } from "lucide-react";
 import type { NavLinkRow } from "../lib/database.types";
 import { cn } from "../lib/utils";
 
-// Speakers section is temporarily off the homepage — hide its nav entry too,
-// without touching the admin-managed nav_links data.
-const HIDDEN_NAV_HREFS = new Set(["#speakers"]);
+const DEFAULT_NAV_LINKS: NavLinkRow[] = [
+  { id: "nav-about", label: "About", href: "#about", position: 1 },
+  { id: "nav-event", label: "Event", href: "#event", position: 2 },
+  { id: "nav-speakers", label: "Speakers", href: "#speakers", position: 3 },
+  { id: "nav-team", label: "Team", href: "#team", position: 4 },
+  { id: "nav-contact", label: "Contact", href: "#contact", position: 5 },
+];
 
 export default function SiteHeader({ navLinks: allNavLinks }: { navLinks: NavLinkRow[] }) {
-  const navLinks = allNavLinks.filter((l) => !HIDDEN_NAV_HREFS.has(l.href));
+  const navLinks = allNavLinks && allNavLinks.length > 0 ? allNavLinks : DEFAULT_NAV_LINKS;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

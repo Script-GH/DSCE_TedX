@@ -20,18 +20,22 @@ export async function POST(request: Request) {
 
   try {
     const supabase = getSupabaseAdmin();
-    const { error: dbError } = await supabase
-      .from("newsletter_subscribers")
-      .insert({ email })
-      .select()
-      .single();
+    if (!supabase) {
+      console.warn("Supabase not configured, skipping newsletter subscriber db insert in local dev");
+    } else {
+      const { error: dbError } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email })
+        .select()
+        .single();
 
-    if (dbError && dbError.code !== "23505") {
-      console.error("Supabase insert failed:", dbError);
-      return NextResponse.json(
-        { error: "We couldn't save your email. Please try again in a moment." },
-        { status: 500 }
-      );
+      if (dbError && dbError.code !== "23505") {
+        console.error("Supabase insert failed:", dbError);
+        return NextResponse.json(
+          { error: "We couldn't save your email. Please try again in a moment." },
+          { status: 500 }
+        );
+      }
     }
   } catch (err) {
     console.error("Supabase client error:", err);
