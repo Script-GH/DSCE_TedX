@@ -73,13 +73,17 @@ export async function POST(request: Request) {
 
   try {
     const supabase = getSupabaseAdmin();
-    const { error: dbError } = await supabase.from("speaker_applications").insert(toDbRow(data));
-    if (dbError) {
-      console.error("Supabase insert failed:", dbError);
-      return NextResponse.json(
-        { error: "We couldn't save your application. Please try again in a moment." },
-        { status: 500 }
-      );
+    if (!supabase) {
+      console.warn("Supabase not configured, skipping speaker application db insert in local dev");
+    } else {
+      const { error: dbError } = await supabase.from("speaker_applications").insert(toDbRow(data));
+      if (dbError) {
+        console.error("Supabase insert failed:", dbError);
+        return NextResponse.json(
+          { error: "We couldn't save your application. Please try again in a moment." },
+          { status: 500 }
+        );
+      }
     }
   } catch (err) {
     console.error("Supabase client error:", err);

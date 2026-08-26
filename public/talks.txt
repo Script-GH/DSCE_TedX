@@ -1,0 +1,14 @@
+# =====================================================================
+# TEDxDSCE - Previous Talks Video Links
+# =====================================================================
+# Add your video links below (one per line).
+# Format: URL | Title | Speaker Name
+# =====================================================================
+
+https://youtu.be/dbsVJrSonhE?si=kPg5ummcR28HGvdY | The Power of Civil Momentum | Annamalai Kuppusamy
+https://youtu.be/vX1bjXPOx30?si=gKJAM01Oolk2Le3X | Make in India vs Incredible India | Vinay Raj Somashekar
+https://youtu.be/edEgxD_rX3c?si=9ZQUGw0g_1z0sUuX | Art of Quitting | Pawan Kumar
+https://youtu.be/6_LX9mo0Thw?si=RalW69G6YrtDL5dw | Figure It Out - The Art of Problem Solving | Shreyans Jain
+https://youtu.be/iVy6zz_m8lg?si=g_rNG-brixo8xvif | Generic v/s Branded Medicine | Arjun Deshpande
+https://youtu.be/fmsVIWE7e6s?si=r8wgaRmt6Areb6fz | Power of Women Entrepreneurship | K. Ratna Prabha, IAS
+https://youtu.be/KLx0-D4ivz0?si=Qgfu7_7lx8wZc8WP | Liberalism, Democracy, and Freedom | Saira Shah Halim
