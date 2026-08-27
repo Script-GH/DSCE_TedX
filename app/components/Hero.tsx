@@ -53,7 +53,9 @@ export default function Hero({ hero }: { hero: HeroContent }) {
           style={{ animation: "riseIn 1s .56s both" }}
         >
           <a
-            href="#register"
+            href="https://in.bookmyshow.com/events/tedxdsce/ET00512645"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-ted px-7 py-3.5 font-medium text-primary-foreground shadow-[var(--shadow-ted)] transition-transform duration-300 hover:scale-[1.03]"
           >
             {hero.ctaPrimaryLabel}

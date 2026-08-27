@@ -14,8 +14,8 @@ import Timeline from "./components/Timeline";
 import Speakers from "./components/Speakers";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
-import Sponsors from "./components/Sponsors";
-import Gallery from "./components/Gallery";
+// import Sponsors from "./components/Sponsors";
+// import Gallery from "./components/Gallery";
 import PreviousTalks from "./components/PreviousTalks";
 // import Faq from "./components/Faq";
 import Contact from "./components/Contact";
@@ -49,8 +49,8 @@ export default async function Home() {
       <Speakers />
       <Team team={content.team} />
       <Testimonials testimonials={content.testimonials} />
-      <Sponsors sponsors={content.sponsors} />
-      <Gallery photos={content.gallery} />
+      {/* <Sponsors sponsors={content.sponsors} /> */}
+      {/* <Gallery photos={content.gallery} /> */}
       <PreviousTalks />
       {/* <Faq faqs={content.faqs} /> */}
       <Contact contact={content.contact} />

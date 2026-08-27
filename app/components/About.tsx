@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { AboutContent } from "../lib/database.types";
 import Reveal from "./Reveal";
 
@@ -16,13 +17,17 @@ export default function About({ about }: { about: AboutContent }) {
           </Reveal>
           <Reveal
             delay={160}
-            className="mt-10 aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-surface bg-cover bg-center"
+            className="relative mt-10 aspect-[2/3] max-w-sm overflow-hidden rounded-2xl border border-border bg-surface bg-cover bg-center"
             style={about.imageUrl ? { backgroundImage: `url(${about.imageUrl})` } : undefined}
           >
             {!about.imageUrl && (
-              <div className="flex h-full items-center justify-center">
-                <span className="eyebrow text-muted-foreground/60">Content coming soon</span>
-              </div>
+              <Image
+                src="/images/tedx-banner.jpg"
+                alt="TEDxDSCE presents Rise of the Dominoes — 12th September, PC Sagar Auditorium, DSCE. An official TEDx event."
+                fill
+                sizes="(min-width: 768px) 384px, 100vw"
+                className="object-cover"
+              />
             )}
           </Reveal>
         </div>

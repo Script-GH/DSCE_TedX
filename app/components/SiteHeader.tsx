@@ -63,7 +63,9 @@ export default function SiteHeader({ navLinks: allNavLinks }: { navLinks: NavLin
               Become a Speaker
             </Link>
             <a
-              href="#register"
+              href="https://in.bookmyshow.com/events/tedxdsce/ET00512645"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-ted px-5 py-2 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.04]"
             >
               Register
@@ -121,7 +123,9 @@ export default function SiteHeader({ navLinks: allNavLinks }: { navLinks: NavLin
             Become a Speaker
           </Link>
           <a
-            href="#register"
+            href="https://in.bookmyshow.com/events/tedxdsce/ET00512645"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
             className="rounded-full bg-ted px-7 py-3 text-sm font-medium text-primary-foreground"
           >
