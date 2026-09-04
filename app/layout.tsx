@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TEDxDSCE — Rise of the Domineo",
+  title: "TEDxDSCE — Rise of the Dominoes",
   description:
     "TEDxDSCE is an independently organized TED event bringing together thinkers, creators and innovators who spark change. One Idea. One Voice. Infinite Impact.",
 };
