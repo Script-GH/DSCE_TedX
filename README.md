@@ -1,4 +1,4 @@
-# TEDxDSCE — Rise of the Domineo
+# TEDxDSCE — Rise of the Dominoes
 
 The public website for TEDxDSCE, built with Next.js (App Router) and Tailwind CSS v4. All content — hero copy, speakers, team, sponsors, gallery, FAQs, etc. — is admin-editable and stored in Supabase; this app renders it, and a separate admin dashboard (`TedX_Admin`) writes to it.
 
