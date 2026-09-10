@@ -17,57 +17,111 @@ interface Speaker {
 const speakers: Speaker[] = [
   {
     id: "s1",
-    name: "Harish Bijoor",
-    role: "Founder, Harish Bijoor Consults Inc.",
-    topic: "Brand Strategy & Chain Reactions",
-    bio: "Harish Bijoor is the founder of Harish Bijoor Consults Inc., spanning Bengaluru to Seattle to London, and widely regarded as India's own \"Ambassador of Brands.\" From senior leadership at Hindustan Unilever and Tata Global Beverages to 20 years on faculty at the Indian School of Business, Harish has spent a career proving that one sharp mind can redefine how an entire market thinks. His insights on consumer psychology, AI, and Web 3.0 aren't just forecasts — they're the first push behind trends everyone else follows later. At TEDxDSCE, Harish takes the stage on how one well-placed idea can set off a chain reaction the whole business world feels.",
-    image: "/speakers/Harish-Bijoor.jpeg",
-    linkedin: "https://www.linkedin.com/in/harish-bijoor-3bb2a5/",
+    name: "Surabhi Yelsangikar",
+    role: "Co-founder, Tvarita Arts Collective",
+    topic: "Art as a Catalyst & Social Enterprise",
+    bio: "Surabhi Yelsangikar is the Co-Founder of Tvarita Arts Collective India, a social enterprise working to preserve Indigenous and traditional Indian art forms while creating sustainable livelihoods for artists. A Harvard Graduate School of Education alumna, she previously led early-stage incubation at NSRCEL, IIM Bangalore, bringing together education, entrepreneurship, arts and social impact.",
+    image: "/speakers/Surabhi Yelsangikar.jpg",
+    linkedin: "https://www.linkedin.com/in/surabhi-yelsangikar-995b69121/",
   },
   {
     id: "s2",
     name: "Dr. Nishant Jayant",
-    role: "Founder, Peritum Creative House",
-    topic: "Marketing & Catalytic Change",
-    bio: "Dr. Nishant Jayant is the founder of Peritum Creative House, growth consultant, and the strategist behind digital campaigns for names like CRED and Reliance. Over a decade in, he's mastered the art of turning one sharp idea into market-wide momentum. His story is proof that impact doesn't start with scale — it starts with a single, focused push in the right direction. At TEDxDSCE, Dr. Nishant takes the stage on how one catalyst can set off a chain of lasting change.",
-    image: "/speakers/Nishant-Jayant.jpeg",
+    role: "Founder, Peritum Marketing House",
+    topic: "Performance Marketing & Catalytic Growth",
+    bio: "Dr. Nishant Jayant is the Founder and Director of Peritum Creative House, a performance marketing agency operating across India and the GCC. With a focus on measurable growth, systematic creative testing and data-driven marketing, he works with brands across D2C, B2B SaaS, FMCG and luxury hospitality to build scalable revenue engines.",
+    image: "/speakers/Dr Nishant Jayant.jpg",
     linkedin: "https://www.linkedin.com/in/dr-nishant-jayant-57249015/",
   },
   {
     id: "s3",
-    name: "Pawan Mulukutla",
-    role: "Executive Program Director, WRI India",
-    topic: "Clean Mobility & Policy Innovation",
-    bio: "Pawan Mulukutla is a mobility policy expert, engineer, and writer whose two-decade career has moved from engineering roots at Robert Bosch to shaping India's clean mobility agenda, playing a key role in the country's electric bus programme and contributing to the National Green Hydrogen Mission. His research on EV battery safety, zero-emission freight, and gender-inclusive mobility has found its way into The Hindu, Hindustan Times, Times of India, and Scroll. Fluent in five languages and driven by one focused mission, Pawan's work proves that the systems we'll all depend on tomorrow are being quietly engineered today. At TEDxDSCE, he talks about building mobility in India, one policy push at a time.",
-    image: "/speakers/Pawan-Mulukutla.jpeg",
-    linkedin: "https://www.linkedin.com/in/pawanmulukutla/",
-  },
-  {
-    id: "s4",
     name: "Rahul Vellal",
-    role: "Musician | Singer",
-    topic: "Musical Heritage & Global Rhythm",
-    bio: "Rahul Vellal is a Bengaluru-based Carnatic vocalist who found his voice at the age of four and has been carrying it across stages worldwide ever since. Trained under the legendary Ranjani & Gayatri, Rahul blends deep-rooted classical discipline with a global stage presence, earning him the Global Child Prodigy Award back in 2020. He's proof that tradition doesn't have to stay still — it can travel, adapt, and still hit every note true. At TEDxDSCE, Rahul talks about carrying India's musical heritage into a global rhythm.",
-    image: "/speakers/Rahul-Vellal.jpeg",
+    role: "Carnatic Classical Vocalist & Musician",
+    topic: "Carnatic Classical Music & Heritage",
+    bio: "Rahul Vellal is a Bengaluru-based Carnatic vocalist and musician who began learning music at the age of four. Trained under Ranjani and Gayatri, he has performed across India and internationally while pursuing Carnatic vocal, mridangam and Western piano. At 18, he represents a new generation carrying classical music into contemporary spaces.",
+    image: "/speakers/Rahul Vellal.jpg",
     linkedin: "https://www.linkedin.com/in/rahul-vellal-7952b6254/",
   },
   {
+    id: "s4",
+    name: "Yash Agarwal",
+    role: "Co-Founder, The Binge Town",
+    topic: "Innovation & Youth Enterprise",
+    bio: "Yash Agarwal is an entrepreneur and young business leader working at the intersection of innovation, technology and enterprise. Through his work, he has built experience in developing ideas, navigating fast-changing markets and creating solutions with practical impact. His journey reflects the evolving role of young founders in shaping India’s entrepreneurial landscape.",
+    image: "/speakers/Yash Agarwal.jpg",
+    linkedin: "https://www.linkedin.com/in/yash-agarwal-636004157/",
+  },
+  {
     id: "s5",
-    name: "Surabhi Yelsangikar",
-    role: "Co-Founder, Tvarita Arts Collective India",
-    topic: "Art as a Catalyst",
-    bio: "Surabhi Yelsangikar is a social entrepreneur, co-founder of Tvarita Arts Collective, and a Harvard Graduate School of Education alum who's built her work around one idea: culture isn't something to preserve in a museum — it's something to build a livelihood on. From incubating ideas at NSRCEL, IIM Bangalore, to empowering traditional artists across India, Surabhi has made it her mission to show that heritage and innovation aren't opposites — they set each other off. At TEDxDSCE, she takes the stage with \"Art as a Catalyst,\" on how creativity can spark the kind of change that doesn't stop at one domino.",
-    image: "/speakers/Surabhi-Yelsangikar.jpeg",
-    linkedin: "https://www.linkedin.com/in/surabhi-yelsangikar-995b69121/",
+    name: "Jimmy Xavier",
+    role: "Creative Head, Voice Artist",
+    topic: "Creative Direction & Voice Artistry",
+    bio: "Jimmy Xavier is a creative professional and entrepreneur whose work brings together communication, business and creative thinking. With experience navigating the evolving creative and entrepreneurial landscape, he focuses on turning ideas into tangible outcomes and exploring new ways for individuals and organisations to communicate, create and build in a rapidly changing world.",
+    image: "/speakers/Jimmy Xavier.jpg",
+    linkedin: "https://www.linkedin.com/in/jimmy-xavier-ba977319/",
   },
   {
     id: "s6",
-    name: "Yash Agarwal",
-    role: "Co-Founder, The Binge Town",
-    topic: "Discipline Over Motivation",
-    bio: "Yash Agarwal is the co-founder of The Binge Town who has built his career on a simple, unglamorous idea — discipline beats motivation, every single time. When his business faced a problem he had zero passion for solving, he didn't wait to feel inspired. He gave it 20 minutes a day. No excitement, no fire, just consistency. Three months later, the problem was solved. His own journey — from health struggles that pulled him back from his masters in Germany, to rebuilding one unspectacular day at a time — is proof that showing up matters more than feeling ready to. At TEDxDSCE, he talks about why discipline, not motivation, is what actually moves things forward.",
-    image: "/speakers/Yash-Agarwal.jpeg",
-    linkedin: "https://www.linkedin.com/in/yash-agarwal-636004157/",
+    name: "Harish Bijoor",
+    role: "Founder, Harish Bijoor Consultants Inc.",
+    topic: "Brand Strategy & Market Insights",
+    bio: "Harish Bijoor is the Founder of Harish Bijoor Consults Inc., a boutique brand consulting firm. A brand thinker and practitioner, he has held senior roles across FMCG and telecommunications, including Tata Coffee and Zip Telecom. His expertise spans branding, marketing, consumer behaviour, retail, sales and general management, making him a prominent voice in India’s business landscape.",
+    image: "/speakers/Harish Bijoor.jpg",
+    linkedin: "https://www.linkedin.com/in/harish-bijoor-3bb2a5/",
+  },
+  {
+    id: "s7",
+    name: "Maestro Prof. K. C. Janardhan",
+    role: "Expert in Handwriting and Calligraphy",
+    topic: "Handwriting, Calligraphy & Cultural Traditions",
+    bio: "Maestro Prof. K. C. Janardhan is a distinguished music educator and practitioner whose work spans performance, teaching and the preservation of Indian musical traditions. Through decades of engagement with music and mentorship, he has contributed to nurturing generations of musicians and keeping classical knowledge relevant across changing cultural landscapes and audiences.",
+    image: "/speakers/Maestro Prof KC Janardhan.png",
+    linkedin: "https://www.linkedin.com/in/kambam-chakrapani-janardhan-0b30b914/",
+  },
+  {
+    id: "s8",
+    name: "Pawan Mulukutla",
+    role: "Executive Program Director, WRI India Integrated Transport, Clean Air and Hydrogen",
+    topic: "Clean Mobility & Sustainable Transport",
+    bio: "Pawan Mulukutla is the Executive Program Director for Integrated Transport, Clean Air and Hydrogen at WRI India. With over two decades of experience across urban mobility, energy and environment, he has contributed to India’s electric mobility and green hydrogen transition, while shaping policy and systems for cleaner, more inclusive and sustainable transportation.",
+    image: "/speakers/Pawan Mulukutla.jpg",
+    linkedin: "https://www.linkedin.com/in/pawanmulukutla/",
+  },
+  {
+    id: "s9",
+    name: "Dr. Sujit Paul",
+    role: "CEO, Zota Healthcare",
+    topic: "Healthcare Leadership & Strategic Management",
+    bio: "Dr. Sujit Paul is an academician, entrepreneur and business educator with experience across management education and institutional leadership. His work spans entrepreneurship, business strategy and professional education, with a focus on developing industry-oriented learning and creating platforms that connect academic knowledge with practical applications in the evolving business ecosystem.",
+    image: "/speakers/Dr. Sujit Paul.webp",
+    linkedin: "https://www.linkedin.com/in/drsujitpaul/",
+  },
+  {
+    id: "s10",
+    name: "Karthik YV",
+    role: "Founder, Art Glory",
+    topic: "Creative Enterprise & Purposeful Ventures",
+    bio: "Karthik YV is associated with ART GLORY, a venture focused on entrepreneurial growth and creative enterprise. His work brings together business thinking, leadership and an interest in building ventures with purpose. Through his entrepreneurial journey, he explores how ideas, people and execution can come together to create sustainable organisations and meaningful impact.",
+    image: "/speakers/Karthik YV.jpeg",
+    linkedin: "https://www.linkedin.com/in/karthik-yv-a98a01112/",
+  },
+  {
+    id: "s11",
+    name: "Ananya Jois",
+    role: "Architect and Interior Designer, Founder Jois Design House",
+    topic: "Architecture, Interior Design & Spatial Aesthetics",
+    bio: "Ar. Ananya Jois is the Founder of Jois Design House, a Bengaluru-based interior design studio specialising in highly customised residential spaces. A first-generation entrepreneur, she combines architectural thinking, aesthetics and execution to create homes that balance quiet luxury with everyday functionality, supported by an integrated approach to design and modular furniture manufacturing.",
+    image: "/speakers/Ananya Jois.jpg",
+    linkedin: "https://www.linkedin.com/in/ananya-a-jois/",
+  },
+  {
+    id: "s12",
+    name: "Shivani R. K.",
+    role: "CEO & Founder, Tribal Brew Coffee",
+    topic: "Indigenous Coffee Culture & Entrepreneurship",
+    bio: "Shivani R. K. is the Founder and CEO of Tribal Brew Coffee, a venture rooted in Indian coffee, entrepreneurship and the communities behind the bean. Through Tribal Brew, she works to connect quality coffee with its cultural and regional identity, building a brand that brings Indian coffee stories closer to contemporary consumers.",
+    image: "/speakers/Shivani RK.jpg",
+    linkedin: "https://www.linkedin.com/in/shivani-r-a6908244/",
   },
 ];
 
@@ -108,35 +162,59 @@ export default function Speakers() {
       {/* Speaker Grid */}
       <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 justify-items-center">
         {speakers.map((speaker, i) => (
-          <Reveal key={speaker.id} delay={i * 50} className="text-center w-full max-w-[340px]">
-              <button
-                type="button"
-                onClick={() => setSelectedSpeaker(speaker)}
-                className="group flex flex-col items-center w-full rounded-3xl border border-border/60 bg-surface/50 p-6 transition-all duration-300 hover:border-white/20 hover:bg-surface cursor-pointer focus:outline-none"
-                aria-label={`View profile of ${speaker.name}`}
-              >
-                {/* Speaker Avatar Container */}
-                <div className="relative mx-auto overflow-hidden rounded-full border-2 border-border/80 bg-surface shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-white/40 w-[200px] h-[200px] sm:w-[240px] sm:h-[240px]">
-                  <div
-                    className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url(${speaker.image})`,
-                    }}
-                  />
-                </div>
+          <Reveal key={speaker.id} delay={i * 40} className="text-center w-full max-w-[340px]">
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelectedSpeaker(speaker)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelectedSpeaker(speaker);
+                }
+              }}
+              className="group flex flex-col items-center w-full rounded-3xl border border-border/60 bg-surface/50 p-6 transition-all duration-300 hover:border-white/20 hover:bg-surface cursor-pointer focus:outline-none focus:ring-2 focus:ring-ted/50 h-full text-left"
+              aria-label={`View profile of ${speaker.name}`}
+            >
+              {/* Speaker Avatar Container */}
+              <div className="relative mx-auto overflow-hidden rounded-full border-2 border-border/80 bg-surface shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-white/40 w-[200px] h-[200px] sm:w-[240px] sm:h-[240px]">
+                <div
+                  className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url("${encodeURI(speaker.image)}")`,
+                  }}
+                />
+              </div>
 
-                {/* Speaker Card Metadata */}
-                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-foreground transition-colors group-hover:text-ted">
-                  {speaker.name}
-                </h3>
-                <p className="mt-2 text-sm sm:text-base text-muted-foreground line-clamp-2 leading-relaxed">
-                  {speaker.role}
-                </p>
+              {/* Speaker Card Metadata */}
+              <h3 className="mt-6 text-xl sm:text-2xl font-bold text-foreground text-center w-full transition-colors group-hover:text-ted">
+                {speaker.name}
+              </h3>
+              <p className="mt-2 text-sm sm:text-base text-muted-foreground text-center w-full line-clamp-2 leading-relaxed">
+                {speaker.role}
+              </p>
 
-                <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-ted font-mono uppercase tracking-wider">
-                  <span>Explore Profile</span> →
-                </div>
-              </button>
+              {/* Action row with Explore Profile & Direct LinkedIn Button */}
+              <div className="mt-auto pt-6 flex items-center justify-between w-full border-t border-white/5">
+                <span className="flex items-center gap-1.5 text-xs font-semibold text-ted font-mono uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                  Explore Profile →
+                </span>
+
+                {speaker.linkedin && (
+                  <a
+                    href={speaker.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition-all duration-200 hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white hover:scale-110 shadow-sm"
+                    aria-label={`Visit ${speaker.name}'s LinkedIn profile`}
+                    title={`Visit ${speaker.name}'s LinkedIn profile`}
+                  >
+                    <Linkedin className="h-4 w-4 fill-current" />
+                  </a>
+                )}
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -157,7 +235,7 @@ export default function Speakers() {
             <button
               type="button"
               onClick={() => setSelectedSpeaker(null)}
-              className="absolute right-5 top-5 sm:right-7 sm:top-7 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-zinc-300 transition-all hover:bg-ted hover:text-white hover:scale-110 active:scale-95"
+              className="absolute right-5 top-5 sm:right-7 sm:top-7 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-zinc-300 transition-all hover:bg-ted hover:text-white hover:scale-110 active:scale-95 cursor-pointer"
               aria-label="Close profile modal"
             >
               <X className="h-6 w-6" />
@@ -169,7 +247,7 @@ export default function Speakers() {
               <div className="relative shrink-0">
                 <div
                   className="h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56 rounded-3xl border-2 border-ted/60 bg-surface-2 bg-cover bg-center shadow-[0_0_35px_rgba(235,0,40,0.35)]"
-                  style={{ backgroundImage: `url(${selectedSpeaker.image})` }}
+                  style={{ backgroundImage: `url("${encodeURI(selectedSpeaker.image)}")` }}
                 />
                 <span className="absolute -bottom-2.5 -right-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-ted text-white shadow-lg">
                   <Sparkles className="h-5 w-5" />
@@ -182,9 +260,11 @@ export default function Speakers() {
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-ted/20 border border-ted/40 px-3.5 py-1 text-xs sm:text-sm font-semibold text-ted uppercase tracking-wider">
                     TEDxDSCE Speaker
                   </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs sm:text-sm text-zinc-300 font-mono">
-                    {selectedSpeaker.topic}
-                  </span>
+                  {selectedSpeaker.topic && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs sm:text-sm text-zinc-300 font-mono">
+                      {selectedSpeaker.topic}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
@@ -213,21 +293,25 @@ export default function Speakers() {
 
             {/* Modal Actions */}
             <div className="mt-9 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
-              <a
-                href={selectedSpeaker.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-2xl bg-[#0A66C2] px-7 py-3.5 text-base sm:text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#004182] hover:scale-105 active:scale-95"
-              >
-                <Linkedin className="h-5 w-5 fill-current" />
-                <span>Connect on LinkedIn</span>
-                <ExternalLink className="h-4 w-4 opacity-80" />
-              </a>
+              {selectedSpeaker.linkedin ? (
+                <a
+                  href={selectedSpeaker.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-[#0A66C2] px-7 py-3.5 text-base sm:text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#004182] hover:scale-105 active:scale-95"
+                >
+                  <Linkedin className="h-5 w-5 fill-current" />
+                  <span>Connect on LinkedIn</span>
+                  <ExternalLink className="h-4 w-4 opacity-80" />
+                </a>
+              ) : (
+                <div />
+              )}
 
               <button
                 type="button"
                 onClick={() => setSelectedSpeaker(null)}
-                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 text-base font-medium text-zinc-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 text-base font-medium text-zinc-300 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
               >
                 Close
               </button>
