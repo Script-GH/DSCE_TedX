@@ -13,7 +13,7 @@ export default function Team({ team }: { team: TeamMemberRow[] }) {
     <section id="team" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
       <Reveal>
         <p className="eyebrow">The Organisers</p>
-        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Meet the team</h2>
+        <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Meet the team</h2>
       </Reveal>
 
       <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">

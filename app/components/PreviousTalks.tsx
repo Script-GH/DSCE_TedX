@@ -228,7 +228,7 @@ export default function PreviousTalks() {
             <div className="flex items-center gap-2">
               <span className="eyebrow">06 — Archive</span>
             </div>
-            <h2 className="display mt-4 text-[clamp(2.5rem,6vw,4.5rem)]">Previous Ted Talks</h2>
+            <h2 className="display led-text led-text-white mt-4 text-[clamp(2.5rem,6vw,4.5rem)]">Previous Ted Talks</h2>
           </div>
 
           <p className="max-w-md text-sm md:text-base text-muted-foreground">

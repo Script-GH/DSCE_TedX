@@ -7,7 +7,7 @@ export default function Videos({ videos }: { videos: VideoRow[] }) {
     <section id="videos" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
       <Reveal>
         <p className="eyebrow">04 — Ideas Worth Spreading</p>
-        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Watch previous talks</h2>
+        <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Watch previous talks</h2>
       </Reveal>
       <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((v, i) => (

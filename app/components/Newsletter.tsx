@@ -41,7 +41,7 @@ export default function Newsletter() {
       <Reveal className="grain relative overflow-hidden rounded-3xl border border-border bg-surface">
         <div className="stage-glow pointer-events-none absolute inset-0" />
         <div id="register" className="relative px-6 py-16 text-center md:px-16 md:py-24">
-          <h3 className="display mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)]">Be the first domineo.</h3>
+          <h3 className="display led-text led-text-white mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)]">Be the first domineo.</h3>
           <p className="mx-auto mt-5 max-w-md text-muted-foreground">
             Join the list for ticket drops, speaker reveals and the story behind Rise of the Domineo.
           </p>

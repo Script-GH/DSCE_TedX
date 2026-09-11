@@ -9,7 +9,7 @@ export default function Contact({ contact }: { contact: ContactContent }) {
     <section id="contact" className="mx-auto max-w-7xl px-5 pb-8 pt-28 md:px-8 md:pt-40">
       <Reveal className="mx-auto max-w-2xl text-center">
         <p className="eyebrow">{contact.eyebrow}</p>
-        <h2 className="display mt-5 text-[clamp(2.2rem,5vw,3.75rem)]">{contact.heading}</h2>
+        <h2 className="display led-text led-text-white mt-5 text-[clamp(2.2rem,5vw,3.75rem)]">{contact.heading}</h2>
         <p className="mt-5 leading-relaxed text-muted-foreground">{contact.body}</p>
         {contact.email && (
           <a

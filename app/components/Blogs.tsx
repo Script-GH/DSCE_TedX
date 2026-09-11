@@ -6,7 +6,7 @@ export default function Blogs({ blogs }: { blogs: BlogPostRow[] }) {
     <section id="blogs" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
       <Reveal>
         <p className="eyebrow">From the Blog</p>
-        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Stories &amp; insights</h2>
+        <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Stories &amp; insights</h2>
       </Reveal>
       <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((post, i) => {

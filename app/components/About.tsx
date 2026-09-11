@@ -8,7 +8,7 @@ export default function About({ about }: { about: AboutContent }) {
       <div className="grid gap-14 md:grid-cols-12 md:items-center">
         <Reveal className="md:col-span-5">
           <p className="eyebrow">{about.eyebrow}</p>
-          <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">{about.heading}</h2>
+          <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">{about.heading}</h2>
         </Reveal>
 
         <div className="md:col-span-6 md:col-start-7">
