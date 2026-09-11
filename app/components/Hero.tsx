@@ -35,10 +35,10 @@ export default function Hero({ hero }: { hero: HeroContent }) {
         </div>
 
         <h1 className="display text-[clamp(3.2rem,12vw,10rem)]">
-          <span className="block" style={{ animation: "riseIn 1s .2s both" }}>
+          <span className="led-text led-text-white block" style={{ animation: "riseIn 1s .2s both" }}>
             {hero.headlineLine1}
           </span>
-          <span className="block text-ted" style={{ animation: "riseIn 1s .32s both" }}>
+          <span className="led-text led-text-red block" style={{ animation: "riseIn 1s .32s both" }}>
             {hero.headlineLine2}
           </span>
         </h1>

@@ -33,7 +33,7 @@ export default function Timeline({ timelineStages }: { timelineStages: TimelineS
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">03 — The Chain Reaction</p>
-          <h2 className="display mt-5 text-[clamp(2.2rem,5vw,3.75rem)]">How one idea moves the world</h2>
+          <h2 className="display led-text led-text-white mt-5 text-[clamp(2.2rem,5vw,3.75rem)]">How one idea moves the world</h2>
         </Reveal>
 
         <div className="relative mx-auto mt-20 max-w-2xl">

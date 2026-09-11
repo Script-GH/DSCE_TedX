@@ -9,6 +9,7 @@ import Tickets from "./components/Tickets";
 import EventCountdown from "./components/EventCountdown";
 import Stats from "./components/Stats";
 import Timeline from "./components/Timeline";
+import EventSchedule from "./components/EventSchedule";
 // import Blogs from "./components/Blogs";
 // import Videos from "./components/Videos";
 import Speakers from "./components/Speakers";
@@ -44,6 +45,7 @@ export default async function Home() {
       <EventCountdown event={content.event} />
       <Stats stats={content.stats} />
       <Timeline timelineStages={content.timeline} />
+      <EventSchedule event={content.event} />
       {/* <Blogs blogs={content.blogs} /> */}
       {/* <Videos videos={content.videos} /> */}
       <Speakers />

@@ -20,7 +20,7 @@ export default function Tickets({ event }: { event: EventContent }) {
     <section id="event" className="mx-auto max-w-7xl px-5 py-28 md:px-8 md:py-40">
       <Reveal>
         <p className="eyebrow text-center">Seats Are Limited</p>
-        <h2 className="display mx-auto mt-5 max-w-3xl text-center text-[clamp(2.4rem,6vw,4.5rem)]">
+        <h2 className="display led-text led-text-white mx-auto mt-5 max-w-3xl text-center text-[clamp(2.4rem,6vw,4.5rem)]">
           One tap between you and the room where it happens
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-center leading-relaxed text-muted-foreground">

@@ -151,7 +151,7 @@ export default function Speakers() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
             <p className="eyebrow">The Speakers</p>
-            <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Voices on stage</h2>
+            <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Voices on stage</h2>
           </div>
           <p className="max-w-md text-base md:text-lg text-muted-foreground">
             Click on any speaker to open their profile, background story, and insights for TEDxDSCE.

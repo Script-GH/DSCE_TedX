@@ -21,7 +21,7 @@ export default function EventCountdown({ event }: { event: EventContent }) {
         <div className="relative grid gap-12 p-8 md:grid-cols-2 md:p-16">
           <div>
             <p className="eyebrow">02 — The Main Event</p>
-            <h2 className="display mt-5 text-[clamp(2.4rem,5.5vw,4rem)]">{event.heading}</h2>
+            <h2 className="display led-text led-text-white mt-5 text-[clamp(2.4rem,5.5vw,4rem)]">{event.heading}</h2>
             <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
               A full day of talks, performances and conversations built around a single question:
               what happens when one idea refuses to stand still?

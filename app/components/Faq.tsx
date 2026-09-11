@@ -12,7 +12,7 @@ export default function Faq({ faqs }: { faqs: FaqRow[] }) {
     <section id="faq" className="mx-auto max-w-3xl px-5 py-28 md:px-8 md:py-40">
       <Reveal className="text-center">
         <p className="eyebrow">06 — Questions</p>
-        <h2 className="display mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Frequently asked</h2>
+        <h2 className="display led-text led-text-white mt-5 text-[clamp(2.5rem,6vw,4.5rem)]">Frequently asked</h2>
       </Reveal>
       <div className="mt-14 flex flex-col gap-3">
         {faqs.map((f, i) => {
